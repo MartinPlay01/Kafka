@@ -7,17 +7,17 @@ RUN apt-get update
 RUN apt-get install -y openjdk-8-jdk
 
 RUN apt-get install -y wget \
-        && wget http://apache.rediris.es/kafka/2.4.0/kafka_2.12-2.4.0.tgz \
-        && tar -xzf kafka_2.12-2.4.0.tgz \
-        && rm -R kafka_2.12-2.4.0.tgz
+        && wget https://archive.apache.org/dist/kafka/0.11.0.1/kafka_2.11-0.11.0.1.tgz \
+        && tar -xzf kafka_2.11-0.11.0.1.tgz \
+        && rm -R kafka_2.11-0.11.0.1.tgz
 
-RUN chmod +x /kafka_2.12-2.4.0
+RUN chmod +x kafka_2.11-0.11.0.1 
 
 ### COPY ###
 
-COPY server-1.properties /kafka_2.12-2.4.0/config/
+COPY server-1.properties /kafka_2.11-0.11.0.1/config/
 
-COPY server-2.properties /kafka_2.12-2.4.0/config/
+COPY server-2.properties /kafka_2.11-0.11.0.1/config/
 
 COPY runzk-kf.sh /usr/local/bin/runzk-kf.sh
 

@@ -6,7 +6,7 @@ set -m
 
 ### RUN Zookeper
 
-./kafka_2.12-2.4.0/bin/zookeeper-server-start.sh /kafka_2.12-2.4.0/config/zookeeper.properties &
+./kafka_2.11-0.11.0.1/bin/zookeeper-server-start.sh /kafka_2.11-0.11.0.1/config/zookeeper.properties &
 status=$?
 if [ $status -ne 0 ]; then
   echo "Failed to start my_zookeeper: $status"
@@ -16,7 +16,7 @@ fi
 
 ### RUN Kafka brokers ###
 
-./kafka_2.12-2.4.0/bin/kafka-server-start.sh /kafka_2.12-2.4.0/config/server.properties &
+./kafka_2.11-0.11.0.1/bin/kafka-server-start.sh /kafka_2.11-0.11.0.1/config/server.properties &
 status=$?
 if [ $status -ne 0 ]; then
   echo "Failed to start my_first_broker: $status"
@@ -25,14 +25,14 @@ fi
 
 
 
-./kafka_2.12-2.4.0/bin/kafka-server-start.sh /kafka_2.12-2.4.0/config/server-1.properties &
+./kafka_2.11-0.11.0.1/bin/kafka-server-start.sh /kafka_2.11-0.11.0.1/config/server-1.properties &
 status=$?
 if [ $status -ne 0 ]; then
   echo "Failed to start my_second_broker: $status"
   exit $status
 fi
 
-./kafka_2.12-2.4.0/bin/kafka-server-start.sh /kafka_2.12-2.4.0/config/server-2.properties
+./kafka_2.11-0.11.0.1/bin/kafka-server-start.sh /kafka_2.11-0.11.0.1/config/server-2.properties
 status=$?
 if [ $status -ne 0 ]; then
   echo "Failed to start my_third_broker: $status"
